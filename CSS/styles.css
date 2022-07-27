@@ -1,0 +1,496 @@
+/*Definimos los colores y las guardamos en variables para acceder a ellas desde el codigo*/
+:root{
+    --color-menu: #0cbb1b;
+    --color-menu-hover: #1d201e;
+    --color-menu-hamburguesa:black; 
+    --color-background: #FCF8E8;  
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+    margin-left: 5px;
+   
+
+}
+
+/*declaramos las propiedades para areas*/
+.header {grid-area: header;}
+.menu {grid-area: menu;}
+.logotipo {grid-area: logotipo;}
+.descripcion{grid-area: descripcion;}
+.foto {grid-area: foto;}
+
+.destino1 {grid-area: destino1;}
+.destino2 {grid-area: destino2;}
+.destino3 { grid-area: destino3;}
+.aside {grid-area: aside;}
+.patas {grid-area: patas;}
+
+
+.container {
+    /*le indicamos que abarque todo el largo de la ventana*/
+    min-height: 100vh;
+    
+    background-color:var(--color-background);
+    /*hacemos uso de grid con display:grid*/
+    display: grid;
+    /*definimos las areas que tendra el layout*/
+    grid-template-areas:
+    'header header header'
+    'menu menu menu'
+    'logotipo descripcion foto'
+    'destino1 destino2 destino3'
+    'aside aside aside'
+    'patas patas patas'
+    ;
+  
+    /*Indicamos la separacion entre cada columna*/
+    gap: 0px;
+     
+}
+
+.container>*{
+    
+    background-color: var(--color-background);
+    text-align: start;
+}
+
+/*Boton chec para desplegar menu
+lo ocultamos con la propiedad none*/
+#check{
+    display: none;
+}
+
+/*imagen con el menu ponemos en display:none para que se oculte
+cuando cambien la mediaqueries se activara*/
+.checkbtn{
+    display: none;
+    width: 30px;
+    height: 35px;
+    padding-left: 10px;
+        
+}
+
+/*hacemos una opacidad cuando se encuentre el cursor sobre el icono menu*/
+.checkbtn:hover{
+    cursor: pointer;
+    background: rgba(0,0,0,.5);
+
+}
+
+/*elemento padre de la lista que contiene el flex*/
+ul{
+    
+    display: flex;
+    justify-content: flex-start;
+     
+    
+}
+/*Elementos hijos del flex del menu*/
+.itemMenu{
+    
+    background-color: var(--color-menu);
+    list-style: none;
+    border-bottom: 1px solid aquamarine;
+    text-align: center;
+    padding: 5px 40px;
+    font-size: large;
+    
+}
+
+/*cuando se encuentre el cursor sobre los elementos del menu cambia de color y 
+se marca el borde inferior en negro*/
+.itemMenu:hover{
+    background-color: var(--color-menu-hover);
+    border-bottom: 1px solid black;
+}
+
+.logotipo  {
+    /*aplicamos flex box para mover el logo*/
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.logotipo img{
+width: 90px;
+/*margin-left: 30px;*/
+}
+
+.foto{
+    
+    background-image: url(../imagenes/empresa.jpg);
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+    width: 100%;
+   
+}
+
+/*.foto::before{
+    content: "AQUI VA EL TEXTO";
+    color: antiquewhite;
+    background: rgba(0,0,0,.8);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    
+
+}*/
+
+.destino1{
+    color: azure;
+    
+    height: 150px;
+    width: 200px;;
+    background-image: url(../imagenes/huatulquirri.jpg);
+    background-position: center;
+    background-size: cover;
+    
+    /*margin-left: 30px;*/
+    
+}
+
+.destino1::before{
+    content: "Huatulco Oaxaca";
+    color: antiquewhite;
+    font-size: 1.5em;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    justify-content: center;
+    transform: scale(0.01);
+    opacity: 0;
+    transition: all .3s;
+}
+
+.destino1:hover::before{
+    transform: scale(1);
+    opacity: 1;
+}
+/*Cuando este sobre la imagen realizara*/
+
+.destino2{
+    color: azure;
+    
+    height: 150px;
+    width: 100%;;
+    background-image: url(../imagenes/bacalar.jpg);
+    background-position: center center; 
+    background-size: cover;
+    
+    
+}
+
+.destino2::before{
+    content: "Bacalar";
+    color: antiquewhite;
+    font-size: 1.5em;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    justify-content: center;
+    transform: scale(0.01);
+    opacity: 0;
+    transition: all .3s;
+}
+.destino2:hover::before{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.destino3{
+    color: azure;
+    
+    height: 150px;
+    width: 200px;;
+    background-image: url(../imagenes/mazunta.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.destino3::before{
+    content: "Mazunte";
+    
+    color: antiquewhite;
+    font-size: 1.5em;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    justify-content: center;
+    transform: scale(0.01);
+    opacity: 0;
+    transition: all .3s;
+}
+.destino3:hover::before{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.patas{
+    background-color: #2C3639;
+}
+.foter{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30px;
+    
+    
+}
+/*alineamos el texto twiter y centramos*/
+.twiter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*definimos el tamaño de la imagen de twiter*/
+.twiter img{
+    padding-left:5px;
+    width: 35px;
+}
+.face{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.face img{
+    padding-left: 5px;
+    width: 30px;
+    
+}
+
+.whatsap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.whatsap img{
+    padding-left: 5px;
+    width: 30px;
+
+}
+
+.maps{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.maps img{
+    padding-left: 5px;
+    width: 30px;
+
+}
+
+
+.addres{
+    display: block;
+    padding-left: 30px;
+    
+}
+/*meidida de 960 a 1328 para ordenadores si queremos podemos incluir otra medida
+para ordenadores mas pequeños que va de  960 a 1024 */
+@media (max-width:1328px){
+    
+    .container {
+                
+        background-color:white;
+        /*hacemos uso de grid con display:grid*/
+        display: grid;
+        /*definimos las areas que tendra el layout*/
+        grid-template-areas:
+        'header header header'
+        'menu menu menu'
+        'logotipo descripcion foto'
+        'destino1 destino2 destino3'
+        'aside aside aside'
+        'patas patas patas'
+        ;
+
+    }
+    
+    
+}
+
+
+@media (max-width:960px) {
+    .checkbtn{
+    display: flex;
+    width: 30px;
+    height: 35px;
+    padding-left: 10px;
+    
+}
+
+.menu{
+    
+}
+.items{
+    /*colocamos los elementos del menu en columna*/    
+    flex-direction: column;  
+    width: 70%;
+    padding-left: 0;
+    margin-left: -80%;
+    height: 0px;
+
+}
+.itemMenu{
+    /*A justamos el contenido al inicio*/
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--color-menu);
+    border-top: white solid px;
+    color: var(--color-menu-hamburguesa);
+    
+}
+
+/*Cuando se hace clic en el check es decir esta chekeado
+busca la clase items que en nuestro caso contiene a la ul que es el menu*/
+#check:checked ~ .items {
+    margin: 0;
+    height: 190px;
+    transition: all .3s;
+
+}
+
+.container {
+    
+    min-height: 100vh;
+    background-color:black;
+    /*hacemos uso de grid con display:grid*/
+    
+    /*definimos las areas que tendra el layout*/
+    grid-template-areas:
+    'header header'
+    'menu menu'
+    'logotipo descripcion' 
+    'foto destino1'
+    'destino2 destino3'
+    'aside aside'
+    'patas patas'
+    ;
+  
+    /*Indicamos la separacion entre cada columna*/
+    gap: 2px;
+    
+    border: solid 3px;
+    
+    
+}
+.foto{
+    width: 150px;
+}
+.destino1{
+    background-image: url(../imagenes/huatulco2.jpg);
+    width: 100%;
+}
+.destino3{
+    background-image: url(../imagenes/Mazunte2.jpg);
+    width: 100%;
+}
+
+    
+}
+
+/*Colocamos las media queris esta primera es para dispositivos moviles 
+que van de 0 a 480 hay un break point intermedio para moviles mas pequeños que va 
+de 0 a 320 */
+@media (max-width:480px){
+    
+   
+    
+    .container {
+        display: grid;
+        /*le indicamos que abarque todo el largo de la ventana*/
+        min-height: 100vh;
+        
+        background-color:var(--color-background);
+        /*hacemos uso de grid con display:grid*/
+        
+        /*definimos las areas que tendra el layout*/
+        grid-template-areas:
+        'logotipo'
+        'menu'
+        'descripcion'
+        'foto'
+        'destino1'
+        'destino2'
+        'destino3'
+        'aside'
+        'patas'
+        ;
+      
+        /*Indicamos la separacion entre cada columna*/
+        gap:0px ;
+        
+        border: solid 3px;
+        
+        
+    }
+
+    .foto{
+        border: solid 1px black;
+        height: 200px;
+        background-image: url(../imagenes/empresa2.jpg);
+        max-width: 100%;
+        width: 100%;
+    }
+
+    
+        /*Modificamos tamaño de las imagenes de redes sociales */
+    .twiter label{
+        visibility: hidden;
+
+    }
+    .twiter img{
+        width: 25px;
+    }
+
+    .face label{
+        visibility: hidden;
+
+    }
+
+    .face img{
+
+        width: 20px;
+
+    }
+
+    .whatsap label{
+        visibility: hidden;
+
+    }
+
+    .whatsap img{
+        width: 20px;
+    }
+
+    .maps label{
+        visibility: hidden;
+
+    }
+    .maps img{
+        width: 20px;
+    }
+
+
+}
